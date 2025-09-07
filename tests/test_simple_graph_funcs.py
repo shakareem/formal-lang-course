@@ -1,6 +1,8 @@
 import os
 import tempfile
 import cfpq_data
+import pydot
+from networkx.drawing import nx_pydot
 from project.simple_graph_funcs import get_graph_info, create_and_save_two_cycled_graph
 
 def test_get_graph_info():
@@ -14,7 +16,12 @@ def test_create_and_save_two_cycled_graph():
         file_path = os.path.join(tmpdir, "graph.dot")
         create_and_save_two_cycled_graph(3, 4, ("x", "y"), file_path)
         assert os.path.exists(file_path)
-        with open(file_path) as f:
-            dot_content = f.read()
-        assert "x" in dot_content
-        assert "y" in dot_content
+
+        (pydot_graph,) = pydot.graph_from_dot_file(file_path)
+        nodes = pydot_graph.get_nodes()
+        edges = pydot_graph.get_edges()
+        labels = {edge.get_attributes().get('label', '') for edge in edges}
+
+        assert len(nodes) == 8
+        assert len(edges) == 9
+        assert labels == {"x", "y"}

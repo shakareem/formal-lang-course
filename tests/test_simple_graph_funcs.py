@@ -5,10 +5,9 @@ from project.simple_graph_funcs import get_graph_info, create_and_save_two_cycle
 
 def test_get_graph_info():
     nodes, edges, labels = get_graph_info("wc")
-    assert isinstance(nodes, int)
-    assert isinstance(edges, int)
-    assert isinstance(labels, list)
-    assert "a" in labels or "b" in labels  # примерная проверка
+    assert nodes == 332
+    assert edges == 269
+    assert labels == {"a", "d"}
 
 def test_create_and_save_two_cycled_graph():
     with tempfile.TemporaryDirectory() as tmpdir:

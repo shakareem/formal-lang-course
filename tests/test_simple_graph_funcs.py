@@ -1,8 +1,6 @@
 import os
 import tempfile
-import cfpq_data
 import pydot
-from networkx.drawing import nx_pydot
 from project.simple_graph_funcs import get_graph_info, create_and_save_two_cycled_graph
 
 

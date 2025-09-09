@@ -5,11 +5,13 @@ import pydot
 from networkx.drawing import nx_pydot
 from project.simple_graph_funcs import get_graph_info, create_and_save_two_cycled_graph
 
+
 def test_get_graph_info():
     nodes, edges, labels = get_graph_info("wc")
     assert nodes == 332
     assert edges == 269
     assert labels == ["d", "a"]
+
 
 def test_create_and_save_two_cycled_graph():
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -20,7 +22,7 @@ def test_create_and_save_two_cycled_graph():
         (pydot_graph,) = pydot.graph_from_dot_file(file_path)
         nodes = pydot_graph.get_nodes()
         edges = pydot_graph.get_edges()
-        labels = {edge.get_attributes().get('label', '') for edge in edges}
+        labels = {edge.get_attributes().get("label", "") for edge in edges}
 
         assert len(nodes) == 8
         assert len(edges) == 9

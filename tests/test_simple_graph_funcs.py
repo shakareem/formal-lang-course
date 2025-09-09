@@ -9,7 +9,7 @@ def test_get_graph_info():
     nodes, edges, labels = get_graph_info("wc")
     assert nodes == 332
     assert edges == 269
-    assert labels == {"a", "d"}
+    assert labels == ["d", "a"]
 
 def test_create_and_save_two_cycled_graph():
     with tempfile.TemporaryDirectory() as tmpdir:

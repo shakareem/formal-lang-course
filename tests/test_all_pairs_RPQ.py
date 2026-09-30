@@ -2,7 +2,11 @@ from networkx import MultiDiGraph
 from pyformlang.finite_automaton import Epsilon, EpsilonNFA, State, Symbol
 
 from project.automaton_conversion import graph_to_nfa, regex_to_dfa
-from project.all_pairs_RPQ import AdjacencyMatrixFA, intersect_automata, tensor_based_rpq
+from project.all_pairs_RPQ import (
+    AdjacencyMatrixFA,
+    intersect_automata,
+    tensor_based_rpq,
+)
 
 
 def test_adjacency_matrix_fa_accepts_words_and_empty_word():

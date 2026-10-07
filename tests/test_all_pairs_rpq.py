@@ -2,7 +2,7 @@ from networkx import MultiDiGraph
 from pyformlang.finite_automaton import Epsilon, EpsilonNFA, State, Symbol
 
 from project.automaton_conversion import graph_to_nfa, regex_to_dfa
-from project.all_pairs_RPQ import (
+from project.all_pairs_rpq import (
     AdjacencyMatrixFA,
     intersect_automata,
     tensor_based_rpq,

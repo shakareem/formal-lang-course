@@ -13,7 +13,7 @@ from rpq_concrete_cases import CASES_RPQ, CaseRPQ
 # Fix import statements in try block to run tests
 try:
     from project.automaton_conversion import regex_to_dfa
-    from project.all_pairs_RPQ import (
+    from project.all_pairs_rpq import (
         intersect_automata,
         AdjacencyMatrixFA,
         tensor_based_rpq,
